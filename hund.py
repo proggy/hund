@@ -3,6 +3,9 @@
 """Implement functions that apply Hund's rules to a given electronic
 configuration.
 
+Author:  Daniel Jung, Jacobs University Bremen, Bremen, Germany.
+Contact: d.jung@jacobs-university.de
+
 To do:
 --> calculate termsymbol of ions
 --> return the name of the element that belongs to the given ground state
@@ -11,12 +14,13 @@ To do:
 __created__ = '2011-10-11'
 __modified__ = '2013-07-03'
 import numpy, sys
+
+# if module "frog" exists, use it, otherwise, create a dummy decorator
 try:
-  from frog2 import Frog
+  from frog import Frog
 except ImportError:
   class Frog(object):
-    pass
-    # dummy
+    # dummy decorator
     def __init__(self, *args, **kwargs):
       pass
     def __call__(self, func):
