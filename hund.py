@@ -1,17 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""Implement functions that apply Hund's rules to a given electronic (atomic)
-configuration."""
-__created__ = '2011-10-11'
-__modified__ = '2013-07-04'
-"""
-To do:
---> calculate termsymbol of ions
---> return the name of the element that belongs to the given ground state
-    electronic configuration
-"""
-
-
+#
+# Copyright notice
+# ----------------
+#
 # Copyright (C) 2013 Daniel Jung
 # Contact: d.jung@jacobs-university.de
 #
@@ -28,6 +20,17 @@ To do:
 # You should have received a copy of the GNU General Public License along
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA.
+#
+"""Implement a function that applies Hund's rules to a given electronic
+(atomic) configuration."""
+__created__ = '2011-10-11'
+__modified__ = '2013-07-04'
+"""
+To do:
+--> calculate termsymbol of ions
+--> return the name of the element that belongs to the given ground state
+    electronic configuration
+"""
 
 
 import numpy, sys

@@ -5,8 +5,8 @@ Implement Hund's rules in Python.
 
 
 
-Copyright information
----------------------
+Copyright notice
+----------------
 
 Copyright (C) 2013 Daniel Jung.
 Contact: d.jung@jacobs-university.de
