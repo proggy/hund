@@ -177,9 +177,9 @@ def sepnumstr(string):
     resulting numeric values and strings as a list.
 
     Example:
+
     >>> sepnumstr('abc12defg345')
-    ['abc', 12, 'defg', 345]
-    """
+    ['abc', 12, 'defg', 345]"""
     # 2011-09-13 - 2013-07-03
     # former tb.sepnumstr from 2011-02-03 until 2011-04-06
     if not isinstance(string, basestring):
