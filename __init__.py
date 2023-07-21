@@ -4,8 +4,8 @@
 # Copyright notice
 # ----------------
 #
-# Copyright (C) 2013-2014 Daniel Jung
-# Contact: djungbremen@gmail.com
+# Copyright (C) 2013-2023 Daniel Jung
+# Contact: proggy-contact@mailbox.org
 #
 # This program is free software; you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by the Free
@@ -22,9 +22,9 @@
 # 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA.
 #
 """Implement a function that applies Hund's rules to a given electronic
-(atomic) configuration."""
-__created__ = '2011-10-11'
-__modified__ = '2013-07-17'
+(atomic) configuration.
+"""
+
 """
 To do:
 --> calculate termsymbol of ions
@@ -32,18 +32,25 @@ To do:
     electronic configuration
 """
 
-import dummy
+__version__ = '0.1.1'
+
 import numpy
+
+class DummyDecorator(object):
+    """Dummy decorator. Returns the passed function unchanged.
+    """
+    def __init__(self, *args, **kwargs):
+        pass
+    def __call__(self, func, *args, **kwargs):
+        return func
 
 try:
     from frog import Frog
 except ImportError:
-    Frog = dummy.Decorator
-
+    Frog = DummyDecorator
 
 # symbols for the orbital quantum number l
 orbletters = 'spdfghiklmnoqrtuv'
-
 
 optdoc = dict(nice='show nice string representation of the term symbol',
               latex='show Latex representation of the term symbol',
@@ -52,7 +59,6 @@ optdoc = dict(nice='show nice string representation of the term symbol',
               L='return orbital angular momentum',
               J='return total angular momentum',
               P='return parity', all_output='return all information')
-
 
 @Frog(usage='%prog [options] CONF', optdoc=optdoc)
 def hund(conf, nice=False, latex=False, S=False, m=False, L=False, J=False,
@@ -75,10 +81,10 @@ def hund(conf, nice=False, latex=False, S=False, m=False, L=False, J=False,
     The Hund's rules are just rules, not laws. For example: For Gadolinium
     (Gd, Z=64) this function finds the ground state term symbol 9D4o, which
     should actually be 9D2o (Gadolinium has the ground state electron
-    configuration "[Xe] 4f7 5d1 6s2")."""
+    configuration "[Xe] 4f7 5d1 6s2").
+    """
     # former hund._Hund (2011-09-14 until 2011-11-15)
     # former tb._Hund from 2011-02-03
-    # 2013-07-03 - 2013-07-03
 
     Jt, Lt, St, Pt = 0., 0, 0., 1  # total values
     for word in conf.split():
@@ -167,7 +173,8 @@ def hund(conf, nice=False, latex=False, S=False, m=False, L=False, J=False,
 
 class strLatex(str):
     """String with display method, for pretty printing in IPython using
-    Latex."""
+    Latex.
+    """
     def _repr_latex_(self):
         return self
 
@@ -180,9 +187,9 @@ def sepnumstr(string):
     >>> sepnumstr('abc12defg345')
     ['abc', 12, 'defg', 345]
     """
-    # 2011-09-13 - 2013-07-03
     # former tb.sepnumstr from 2011-02-03 until 2011-04-06
-    if not isinstance(string, basestring):
+
+    if not isinstance(string, str):
         raise TypeError('string expected')
 
     # if string is empty, just return empty list
